@@ -48,3 +48,11 @@ module.exports = {
     res.json(booking_uuid);
   }
 };
+
+/*
+//우회적으로 말고 직접 삭제하는 방법
+const idx = booking.findIndex((el) => el.booking_uuid === booking_uuid); //동일한 id를 가진 데이터의 첫번째 index를 찾는다.
+booking.splice(idx,1); //idx번째부터 1개를 지운다.
+return res.json(booking);
+
+*/

@@ -1,6 +1,7 @@
 const flights = require('../repository/flightList');
 const fs = require('fs');
 
+//객체를 모듈의 형태로 내보낸다. 다른 파일에 써야 하므로!
 module.exports = {
   // [GET] /flight
   // 요청 된 파라미터 departure_times, arrival_times 값과 동일한 값을 가진 항공편 데이터를 조회합니다.
@@ -61,3 +62,15 @@ module.exports = {
     }
   }
 };
+
+
+/*
+//put 레퍼런스 코드 (재할당을 해도되고 이 방법을 써도 된다)
+const idx = flights.findIndex((el) => el.uuid === uuid); //동일한 id를 가진 데이터들 중 첫번째 인덱스를 찾음
+const newFlight = {
+  ...flights[idx],
+  ...bodyData,
+}; //동일한 키와 값이 있다면 뒤에 있는 키로 값이 변한다.
+flights.splice(idx,1,newFlight); //동일한 id를 가진 첫번째 idx의 데이터는 지우고 그 자리에 새로운 데이터(bodydata)를 넣어준다.
+return res.json(newFlight);
+*/
